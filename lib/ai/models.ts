@@ -40,13 +40,13 @@ export const chatModels: ChatModel[] = [
     description: "Fast reasoning model with 200K context and function calling",
   },
   {
-    id: "gemma-4-31b",
+    id: "Gemma-4-31b",
     name: "Gemma 4 31B",
     provider: "morpheus",
     description: "Reasoning and vision model with 256K context",
   },
   {
-    id: "minimax-m2.5",
+    id: "MiniMax-M2.5",
     name: "MiniMax M2.5",
     provider: "morpheus",
     description: "Code and reasoning specialist with 198K context",
