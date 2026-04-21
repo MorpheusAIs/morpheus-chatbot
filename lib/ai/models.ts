@@ -1,10 +1,10 @@
-export const DEFAULT_CHAT_MODEL = "kimi-k2.5";
+export const DEFAULT_CHAT_MODEL = "glm-5";
 
 export const titleModel = {
-  id: "kimi-k2.5",
-  name: "Kimi K2.5",
+  id: "glm-5",
+  name: "GLM 5",
   provider: "morpheus",
-  description: "Flagship model with 256K context, vision, reasoning, and code capabilities",
+  description: "Powerful reasoning model with 200K context and function calling",
 };
 
 export type ModelCapabilities = {

@@ -1,8 +1,9 @@
-import { createOpenAI } from "@ai-sdk/openai";
+import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
 import { customProvider } from "ai";
 import { isTestEnvironment } from "../constants";
 
-const morpheus = createOpenAI({
+const morpheus = createOpenAICompatible({
+  name: "morpheus",
   baseURL: "https://api.mor.org/api/v1",
   apiKey: process.env.MORPHEUS_API_KEY,
 });
