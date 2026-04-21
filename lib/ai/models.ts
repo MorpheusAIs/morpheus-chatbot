@@ -34,16 +34,16 @@ export const chatModels: ChatModel[] = [
     description: "Powerful reasoning model with 200K context and function calling",
   },
   {
-    id: "qwen3-235b",
-    name: "Qwen3 235B",
+    id: "glm-4.7-flash",
+    name: "GLM 4.7 Flash",
     provider: "morpheus",
-    description: "Large-scale model with 128K context and function calling",
+    description: "Fast reasoning model with 200K context and function calling",
   },
   {
-    id: "llama-3.3-70b",
-    name: "Llama 3.3 70B",
+    id: "gemma-4-31b",
+    name: "Gemma 4 31B",
     provider: "morpheus",
-    description: "Fast, reliable model with 128K context and function calling",
+    description: "Reasoning and vision model with 256K context",
   },
   {
     id: "minimax-m2.5",
