@@ -1,20 +1,22 @@
-<a href="https://chatbot.ai-sdk.dev/demo">
-  <img alt="Chatbot" src="app/(chat)/opengraph-image.png">
-  <h1 align="center">Chatbot</h1>
-</a>
+# Morpheus Chatbot
+
+A full-featured AI chatbot powered by the Morpheus decentralized inference network.
 
 <p align="center">
-    Chatbot (formerly AI Chatbot) is a free, open-source template built with Next.js and the AI SDK that helps you quickly build powerful chatbot applications.
-</p>
-
-<p align="center">
-  <a href="https://chatbot.ai-sdk.dev/docs"><strong>Read Docs</strong></a> ·
+  <a href="#powered-by-morpheus-inference-api"><strong>Morpheus API</strong></a> ·
   <a href="#features"><strong>Features</strong></a> ·
   <a href="#model-providers"><strong>Model Providers</strong></a> ·
-  <a href="#deploy-your-own"><strong>Deploy Your Own</strong></a> ·
   <a href="#running-locally"><strong>Running locally</strong></a>
 </p>
 <br/>
+
+## Powered by Morpheus Inference API
+
+This template uses the [Morpheus Inference API](https://apidocs.mor.org) — an OpenAI-compatible API backed by a decentralized network of inference providers.
+
+[![Get API Key](https://img.shields.io/badge/Get%20API%20Key-Morpheus-00D084?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTIgMkw0IDdWMTdMMTIgMjJMMjAgMTdWN0wxMiAyWiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=)](https://app.mor.org)
+
+📖 [API Documentation](https://apidocs.mor.org) · 🔧 [Available Models](https://apidocs.mor.org/documentation/models)
 
 ## Features
 
@@ -24,7 +26,7 @@
 - [AI SDK](https://ai-sdk.dev/docs/introduction)
   - Unified API for generating text, structured objects, and tool calls with LLMs
   - Hooks for building dynamic chat and generative user interfaces
-  - Supports OpenAI, Anthropic, Google, xAI, and other model providers via AI Gateway
+  - Powered by Morpheus decentralized inference
 - [shadcn/ui](https://ui.shadcn.com)
   - Styling with [Tailwind CSS](https://tailwindcss.com)
   - Component primitives from [Radix UI](https://radix-ui.com) for accessibility and flexibility
@@ -36,31 +38,30 @@
 
 ## Model Providers
 
-This template uses the [Vercel AI Gateway](https://vercel.com/docs/ai-gateway) to access multiple AI models through a unified interface. Models are configured in `lib/ai/models.ts` with per-model provider routing. Included models: Mistral, Moonshot, DeepSeek, OpenAI, and xAI.
+This template connects to the [Morpheus Inference API](https://apidocs.mor.org) — a decentralized, OpenAI-compatible inference network. Models are configured in `lib/ai/models.ts`.
 
-### AI Gateway Authentication
+| Model | Context | Capabilities |
+|-------|---------|--------------|
+| Kimi K2.5 | 256K | Vision, reasoning, code |
+| GLM 5 | 200K | Reasoning, function calling |
+| Qwen3 235B | 128K | Function calling |
+| Llama 3.3 70B | 128K | Function calling |
+| MiniMax M2.5 | 198K | Code, reasoning |
 
-**For Vercel deployments**: Authentication is handled automatically via OIDC tokens.
-
-**For non-Vercel deployments**: You need to provide an AI Gateway API key by setting the `AI_GATEWAY_API_KEY` environment variable in your `.env.local` file.
-
-With the [AI SDK](https://ai-sdk.dev/docs/introduction), you can also switch to direct LLM providers like [OpenAI](https://openai.com), [Anthropic](https://anthropic.com), [Cohere](https://cohere.com/), and [many more](https://ai-sdk.dev/providers/ai-sdk-providers) with just a few lines of code.
-
-## Deploy Your Own
-
-You can deploy your own version of Chatbot to Vercel with one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/templates/next.js/chatbot)
+Get your API key at [app.mor.org](https://app.mor.org).
 
 ## Running locally
 
-You will need to use the environment variables [defined in `.env.example`](.env.example) to run Chatbot. It's recommended you use [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) for this, but a `.env` file is all that is necessary.
+You will need to use the environment variables [defined in `.env.example`](.env.example) to run the chatbot.
 
-> Note: You should not commit your `.env` file or it will expose secrets that will allow others to control access to your various AI and authentication provider accounts.
+> Note: You should not commit your `.env` file or it will expose secrets that will allow others to control access to your accounts.
 
-1. Install Vercel CLI: `npm i -g vercel`
-2. Link local instance with Vercel and GitHub accounts (creates `.vercel` directory): `vercel link`
-3. Download your environment variables: `vercel env pull`
+1. Copy `.env.example` to `.env.local` and fill in the values:
+   - `AUTH_SECRET`: Generate with `openssl rand -base64 32`
+   - `MORPHEUS_API_KEY`: Get from [app.mor.org](https://app.mor.org)
+   - `POSTGRES_URL`: Your Postgres connection string
+   - `BLOB_READ_WRITE_TOKEN`: Your Vercel Blob token
+   - `REDIS_URL`: Your Redis connection string
 
 ```bash
 pnpm install
@@ -68,4 +69,4 @@ pnpm db:migrate # Setup database or apply latest database changes
 pnpm dev
 ```
 
-Your app template should now be running on [localhost:3000](http://localhost:3000).
+Your app should now be running on [localhost:3000](http://localhost:3000).
